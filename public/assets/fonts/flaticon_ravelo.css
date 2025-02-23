@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "flaticon_ravelo";
-  src: url("./flaticon_ravelo.woff2?6a17e9e26dbb5a2360f515e123c8e921") format("woff2"), url("./flaticon_ravelo.woff?6a17e9e26dbb5a2360f515e123c8e921") format("woff"), url("./flaticon_ravelo.eot?6a17e9e26dbb5a2360f515e123c8e921#iefix") format("embedded-opentype"), url("./flaticon_ravelo.ttf?6a17e9e26dbb5a2360f515e123c8e921") format("truetype"), url("./flaticon_ravelo.svg?6a17e9e26dbb5a2360f515e123c8e921#flaticon_ravelo") format("svg"); }
+  font-family: "flaticon_Ravelo";
+  src: url("./flaticon_Ravelo.woff2?6a17e9e26dbb5a2360f515e123c8e921") format("woff2"), url("./flaticon_Ravelo.woff?6a17e9e26dbb5a2360f515e123c8e921") format("woff"), url("./flaticon_Ravelo.eot?6a17e9e26dbb5a2360f515e123c8e921#iefix") format("embedded-opentype"), url("./flaticon_Ravelo.ttf?6a17e9e26dbb5a2360f515e123c8e921") format("truetype"), url("./flaticon_Ravelo.svg?6a17e9e26dbb5a2360f515e123c8e921#flaticon_Ravelo") format("svg"); }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
-  font-family: flaticon_ravelo !important;
+  font-family: flaticon_Ravelo !important;
   font-style: normal;
   font-weight: normal !important;
   font-variant: normal;

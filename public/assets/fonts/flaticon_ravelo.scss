@@ -1,16 +1,16 @@
-$flaticon_ravelo-font: "flaticon_ravelo";
+$flaticon_Ravelo-font: "flaticon_Ravelo";
 
 @font-face {
-    font-family: $flaticon_ravelo-font;
-    src: url("./flaticon_ravelo.woff2?6a17e9e26dbb5a2360f515e123c8e921") format("woff2"),
-url("./flaticon_ravelo.woff?6a17e9e26dbb5a2360f515e123c8e921") format("woff"),
-url("./flaticon_ravelo.eot?6a17e9e26dbb5a2360f515e123c8e921#iefix") format("embedded-opentype"),
-url("./flaticon_ravelo.ttf?6a17e9e26dbb5a2360f515e123c8e921") format("truetype"),
-url("./flaticon_ravelo.svg?6a17e9e26dbb5a2360f515e123c8e921#flaticon_ravelo") format("svg");
+    font-family: $flaticon_Ravelo-font;
+    src: url("./flaticon_Ravelo.woff2?6a17e9e26dbb5a2360f515e123c8e921") format("woff2"),
+url("./flaticon_Ravelo.woff?6a17e9e26dbb5a2360f515e123c8e921") format("woff"),
+url("./flaticon_Ravelo.eot?6a17e9e26dbb5a2360f515e123c8e921#iefix") format("embedded-opentype"),
+url("./flaticon_Ravelo.ttf?6a17e9e26dbb5a2360f515e123c8e921") format("truetype"),
+url("./flaticon_Ravelo.svg?6a17e9e26dbb5a2360f515e123c8e921#flaticon_Ravelo") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
-    font-family: flaticon_ravelo !important;
+    font-family: flaticon_Ravelo !important;
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
@@ -20,7 +20,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-$flaticon_ravelo-map: (
+$flaticon_Ravelo-map: (
     "flight": "\f101",
     "tent": "\f102",
     "cycling": "\f103",
@@ -55,95 +55,95 @@ $flaticon_ravelo-map: (
 );
 
 .flaticon-flight:before {
-    content: map-get($flaticon_ravelo-map, "flight");
+    content: map-get($flaticon_Ravelo-map, "flight");
 }
 .flaticon-tent:before {
-    content: map-get($flaticon_ravelo-map, "tent");
+    content: map-get($flaticon_Ravelo-map, "tent");
 }
 .flaticon-cycling:before {
-    content: map-get($flaticon_ravelo-map, "cycling");
+    content: map-get($flaticon_Ravelo-map, "cycling");
 }
 .flaticon-kayak:before {
-    content: map-get($flaticon_ravelo-map, "kayak");
+    content: map-get($flaticon_Ravelo-map, "kayak");
 }
 .flaticon-travel-agency:before {
-    content: map-get($flaticon_ravelo-map, "travel-agency");
+    content: map-get($flaticon_Ravelo-map, "travel-agency");
 }
 .flaticon-coffee-cup:before {
-    content: map-get($flaticon_ravelo-map, "coffee-cup");
+    content: map-get($flaticon_Ravelo-map, "coffee-cup");
 }
 .flaticon-bed:before {
-    content: map-get($flaticon_ravelo-map, "bed");
+    content: map-get($flaticon_Ravelo-map, "bed");
 }
 .flaticon-double-quotes:before {
-    content: map-get($flaticon_ravelo-map, "double-quotes");
+    content: map-get($flaticon_Ravelo-map, "double-quotes");
 }
 .flaticon-save-money:before {
-    content: map-get($flaticon_ravelo-map, "save-money");
+    content: map-get($flaticon_Ravelo-map, "save-money");
 }
 .flaticon-travel-1:before {
-    content: map-get($flaticon_ravelo-map, "travel-1");
+    content: map-get($flaticon_Ravelo-map, "travel-1");
 }
 .flaticon-booking:before {
-    content: map-get($flaticon_ravelo-map, "booking");
+    content: map-get($flaticon_Ravelo-map, "booking");
 }
 .flaticon-guidepost:before {
-    content: map-get($flaticon_ravelo-map, "guidepost");
+    content: map-get($flaticon_Ravelo-map, "guidepost");
 }
 .flaticon-climbing:before {
-    content: map-get($flaticon_ravelo-map, "climbing");
+    content: map-get($flaticon_Ravelo-map, "climbing");
 }
 .flaticon-online-chat:before {
-    content: map-get($flaticon_ravelo-map, "online-chat");
+    content: map-get($flaticon_Ravelo-map, "online-chat");
 }
 .flaticon-route:before {
-    content: map-get($flaticon_ravelo-map, "route");
+    content: map-get($flaticon_Ravelo-map, "route");
 }
 .flaticon-best-price:before {
-    content: map-get($flaticon_ravelo-map, "best-price");
+    content: map-get($flaticon_Ravelo-map, "best-price");
 }
 .flaticon-business-travel:before {
-    content: map-get($flaticon_ravelo-map, "business-travel");
+    content: map-get($flaticon_Ravelo-map, "business-travel");
 }
 .flaticon-plane:before {
-    content: map-get($flaticon_ravelo-map, "plane");
+    content: map-get($flaticon_Ravelo-map, "plane");
 }
 .flaticon-signpost:before {
-    content: map-get($flaticon_ravelo-map, "signpost");
+    content: map-get($flaticon_Ravelo-map, "signpost");
 }
 .flaticon-key:before {
-    content: map-get($flaticon_ravelo-map, "key");
+    content: map-get($flaticon_Ravelo-map, "key");
 }
 .flaticon-award-symbol:before {
-    content: map-get($flaticon_ravelo-map, "award-symbol");
+    content: map-get($flaticon_Ravelo-map, "award-symbol");
 }
 .flaticon-tourism:before {
-    content: map-get($flaticon_ravelo-map, "tourism");
+    content: map-get($flaticon_Ravelo-map, "tourism");
 }
 .flaticon-hiking:before {
-    content: map-get($flaticon_ravelo-map, "hiking");
+    content: map-get($flaticon_Ravelo-map, "hiking");
 }
 .flaticon-fishing:before {
-    content: map-get($flaticon_ravelo-map, "fishing");
+    content: map-get($flaticon_Ravelo-map, "fishing");
 }
 .flaticon-man:before {
-    content: map-get($flaticon_ravelo-map, "man");
+    content: map-get($flaticon_Ravelo-map, "man");
 }
 .flaticon-kayak-1:before {
-    content: map-get($flaticon_ravelo-map, "kayak-1");
+    content: map-get($flaticon_Ravelo-map, "kayak-1");
 }
 .flaticon-bonfire:before {
-    content: map-get($flaticon_ravelo-map, "bonfire");
+    content: map-get($flaticon_Ravelo-map, "bonfire");
 }
 .flaticon-flashlight:before {
-    content: map-get($flaticon_ravelo-map, "flashlight");
+    content: map-get($flaticon_Ravelo-map, "flashlight");
 }
 .flaticon-meditation:before {
-    content: map-get($flaticon_ravelo-map, "meditation");
+    content: map-get($flaticon_Ravelo-map, "meditation");
 }
 .flaticon-placeholder:before {
-    content: map-get($flaticon_ravelo-map, "placeholder");
+    content: map-get($flaticon_Ravelo-map, "placeholder");
 }
 .flaticon-quote:before {
-    content: map-get($flaticon_ravelo-map, "quote");
+    content: map-get($flaticon_Ravelo-map, "quote");
 }
