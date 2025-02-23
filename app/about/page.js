@@ -355,7 +355,7 @@ const page = () => {
             data-aos-duration={1500}
             data-aos-offset={50}
           >
-            <SectionTitle title={"How to Benefit Our Ravelo Tours & Travels"} />
+            <SectionTitle title={"How to Benefit Our ravelo Tours & Travels"} />
           </div>
           <div className="row">
             <div

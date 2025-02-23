@@ -1,6 +1,6 @@
 "use client";
 import Banner from "@/components/Banner";
-import RaveloAccordion from "@/components/RaveloAccordion";
+import raveloAccordion from "@/components/raveloAccordion";
 import SectionTitle from "@/components/SectionTitle";
 import Subscribe from "@/components/Subscribe";
 import ReveloLayout from "@/layout/ReveloLayout";
@@ -142,7 +142,7 @@ const page = () => {
               </div>
               <Accordion className="accordion-one" defaultActiveKey={active}>
                 {faqItem.map((data, i) => (
-                  <RaveloAccordion
+                  <raveloAccordion
                     title={data.title}
                     key={data.id}
                     event={`collapse${i}`}

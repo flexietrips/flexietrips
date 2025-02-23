@@ -1,6 +1,6 @@
 import { Accordion } from "react-bootstrap";
 
-const RaveloAccordion = ({ event, active, onClick, title }) => {
+const raveloAccordion = ({ event, active, onClick, title }) => {
   return (
     <div
       className="accordion-item"
@@ -31,4 +31,4 @@ const RaveloAccordion = ({ event, active, onClick, title }) => {
     </div>
   );
 };
-export default RaveloAccordion;
+export default raveloAccordion;

@@ -1,5 +1,5 @@
 "use client";
-import RaveloAccordion from "@/components/RaveloAccordion";
+import raveloAccordion from "@/components/raveloAccordion";
 import Subscribe from "@/components/Subscribe";
 import ReveloLayout from "@/layout/ReveloLayout";
 import Link from "next/link";
@@ -314,7 +314,7 @@ const page = () => {
                 defaultActiveKey={active}
               >
                 {faqItem.map((data, i) => (
-                  <RaveloAccordion
+                  <raveloAccordion
                     title={data.title}
                     key={data.id}
                     event={`collapse${i}`}
@@ -331,7 +331,7 @@ const page = () => {
                 defaultActiveKey={active2}
               >
                 {faqItem2.map((data, i) => (
-                  <RaveloAccordion
+                  <raveloAccordion
                     title={data.title}
                     key={data.id}
                     event={`collapse${i}`}
