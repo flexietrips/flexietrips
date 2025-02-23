@@ -39,7 +39,7 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <SectionTitle
-                  title={"Discover the World's Treasures with flexiEtrips"}
+                  title={"Discover the World's Treasures with Ravelo"}
                   countValue={34500}
                   subtitle1={"One site"}
                   subtitle2={"most popular experience you’ll remember"}
@@ -1112,7 +1112,7 @@ const page = () => {
                   </Link>
                   <h5>
                     <Link href="blog-details">
-                      Ultimate Guide to Planning Your Dream Vacation with flexiEtrips
+                      Ultimate Guide to Planning Your Dream Vacation with Ravelo
                       Travel Agency
                     </Link>
                   </h5>

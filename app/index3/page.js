@@ -24,9 +24,9 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <span className="subtitle mb-15">
-                  ravelo Tours &amp; Travel
+                  Ravelo Tours &amp; Travel
                 </span>
-                <h1>Explore and Start yours's Journey With ravelo</h1>
+                <h1>Explore and Start yours's Journey With Ravelo</h1>
                 <p>
                   One site{" "}
                   <span className="count-text plus">
@@ -730,7 +730,7 @@ const page = () => {
                 >
                   <div className="section-title counter-text-wrap mb-40">
                     <SectionTitle
-                      title={"How to Benefit Our ravelo Tours & Travels"}
+                      title={"How to Benefit Our Ravelo Tours & Travels"}
                       subtitle2="most popular experience"
                     />
                   </div>

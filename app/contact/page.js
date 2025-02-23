@@ -291,7 +291,7 @@ const page = () => {
                 </div>
                 <div className="circle-logo">
                   <img src="assets/images/contact/icon.png" alt="Logo" />
-                  <span className="title h2">ravelo</span>
+                  <span className="title h2">Ravelo</span>
                 </div>
               </div>
             </div>

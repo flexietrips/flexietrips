@@ -87,7 +87,7 @@ const page = () => {
                   Explore your <i className="far fa-long-arrow-alt-right" />{" "}
                   <b>favorite destination</b> with our{" "}
                   <span>
-                    <b>ravelo</b>
+                    <b>Ravelo</b>
                   </span>
                 </div>
                 <div
@@ -617,7 +617,7 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <SectionTitle
-                  title={"Discover the World's Treasures with ravelo"}
+                  title={"Discover the World's Treasures with Ravelo"}
                   bg={"bgc-primary"}
                 />
               </div>
@@ -812,7 +812,7 @@ const page = () => {
               >
                 <div className="section-title counter-text-wrap mb-50">
                   <SectionTitle
-                    title={"How to Benefit Our ravelo Tours & Travels"}
+                    title={"How to Benefit Our Ravelo Tours & Travels"}
                     bg={"bgc-primary"}
                     subtitle2="most popular experience"
                   />
