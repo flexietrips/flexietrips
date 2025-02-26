@@ -362,7 +362,7 @@ const Footer1 = () => {
             <div className="col-lg-5">
               <div className="copyright-text text-center text-lg-start">
                 <p>
-                  @Linkopy 202/4 <a href="">Ravelo</a>, All rights reserved
+                  @Linkopy 202/4 <a href="">flexiEtrips</a>, All rights reserved
                 </p>
               </div>
             </div>
@@ -549,7 +549,7 @@ const Footer2 = ({ insta }) => {
             <div className="col-lg-5">
               <div className="copyright-text text-center text-lg-start">
                 <p>
-                  @Linkopy 202/4 <a href="">Ravelo</a>, All rights reserved
+                  @Linkopy 202/4 <a href="">flexiEtrips</a>, All rights reserved
                 </p>
               </div>
             </div>
