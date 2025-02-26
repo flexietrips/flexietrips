@@ -29,7 +29,7 @@ export default function UnderMaintenance() {
 
           <p className="text-light">Our website is getting a makeover to serve you better. We'll be back soon with exciting new features and amazing travel deals!</p>
 
-          <div className="row mt-4">
+          <div className="row mt-4">    
             <div className=" mb-3">
               <div className="p-3 border rounded bg-dark bg-opacity-50 text-light">
                 <Mail className="text-warning mb-2" size={24} />
