@@ -17,8 +17,8 @@ export default function UnderMaintenance() {
         <div className="bg-dark bg-opacity-100 p-4 rounded-4 border border-light">
           <div className="d-flex align-items-center justify-content-center mb-4">
             <Compass className="me-2 text-warning" size={48} />
-            <h1 className="fw-bold">flexiETrips</h1>
-          </div>
+            <h1 className="fw-bold">flexiEtrips</h1>
+          </div>   
 
           <h2 className="fw-bold mb-3">Under Maintenance</h2>
           <p className="text-light fs-5">We're currently enhancing your travel experience</p>
