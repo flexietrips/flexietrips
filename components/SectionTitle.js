@@ -3,7 +3,7 @@ import Counter from "./Counter";
 const SectionTitle = ({
   title,
   countValue = 34500,
-  subtitle1 = "One site",
+  // subtitle1 = "One site",
   subtitle2 = "most popular experience you’ll remember",
   bg,
 }) => {
@@ -11,10 +11,10 @@ const SectionTitle = ({
     <Fragment>
       <h2>{title}</h2>
       <p>
-        {subtitle1}{" "}
-        <span className={`count-text plus ${bg}`}>
+        {/* {subtitle1}{" "} */}
+        {/* <span className={`count-text plus ${bg}`}>
           <Counter end={countValue} />
-        </span>{" "}
+        </span>{" "} */}
         {subtitle2}
       </p>
     </Fragment>

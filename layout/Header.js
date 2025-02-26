@@ -55,12 +55,12 @@ const Menu = () => {
               <a href="#">Tours</a>
               <ul>
                 <li>
-                  <Link href="tour-list">Tour List</Link>
+                  <Link href="tour-list">Group Tours</Link>
                 </li>
                 <li>
-                  <Link href="tour-grid">Tour Grid</Link>
+                  <Link href="tour-grid">Solo Tour</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="tour-sidebar">Tour Sidebar</Link>
                 </li>
                 <li>
@@ -68,7 +68,7 @@ const Menu = () => {
                 </li>
                 <li>
                   <Link href="tour-guide">Tour Guide</Link>
-                </li>
+                </li> */}
               </ul>
               <div className="dropdown-btn">
                 <span className="far fa-angle-down" />
@@ -91,7 +91,7 @@ const Menu = () => {
                 <span className="far fa-angle-down" />
               </div>
             </li>
-            <li className="dropdown">
+            {/* <li className="dropdown">
               <a href="#">Pages</a>
               <ul>
                 <li>
@@ -138,7 +138,7 @@ const Menu = () => {
               <div className="dropdown-btn">
                 <span className="far fa-angle-down" />
               </div>
-            </li>
+            </li> */}
             <li className="dropdown">
               <a href="#">blog</a>
               <ul>
@@ -205,7 +205,7 @@ const Header1 = ({ sidebarClick }) => {
                 {/* Main Menu End*/}
               </div>
               {/* Nav Search */}
-              <div className="nav-search">
+              {/* <div className="nav-search">
                 <button
                   className="far fa-search"
                   onClick={() => setToggleSearch(!toggleSearch)}
@@ -226,16 +226,16 @@ const Header1 = ({ sidebarClick }) => {
                     className="searchbutton far fa-search"
                   />
                 </form>
-              </div>
+              </div> */}
               {/* Menu Button */}
               <div className="menu-btns py-10">
-                <Link
+                {/* <Link
                   href="contact"
                   className="theme-btn style-two bgc-secondary"
                 >
                   <span data-hover="Book Now">Book Now</span>
                   <i className="fal fa-arrow-right" />
-                </Link>
+                </Link> */}
                 {/* menu sidbar */}
                 <div className="menu-sidebar" onClick={() => sidebarClick()}>
                   <button className="bg-transparent">
