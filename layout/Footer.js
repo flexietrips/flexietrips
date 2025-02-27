@@ -334,13 +334,13 @@ const Footer1 = () => {
                 </div>
                 <ul className="list-style-one">
                   <li>
-                    <i className="fal fa-map-marked-alt" /> 578 Level, D-block
-                    45 Street Melbourne, Australia
+                    <i className="fal fa-map-marked-alt" /> Solan, Himachal
+                    Pradesh
                   </li>
                   <li>
                     <i className="fal fa-envelope" />{" "}
-                    <a href="mailto:supportrevelo@gmail.com">
-                      supportrevelo@gmail.com
+                    <a href="mailto:info@flexietrips.com">
+                      info@flexietrips.com
                     </a>
                   </li>
                   <li>
@@ -348,7 +348,7 @@ const Footer1 = () => {
                   </li>
                   <li>
                     <i className="fal fa-phone-volume" />{" "}
-                    <a href="callto:+88012334588">+880 (123) 345 88</a>
+                    <a href="callto:+919805722642">+91 9805722642</a>
                   </li>
                 </ul>
               </div>
