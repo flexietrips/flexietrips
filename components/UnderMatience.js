@@ -34,7 +34,7 @@ export default function UnderMaintenance() {
               <div className="p-3 border rounded bg-dark bg-opacity-50 text-light">
                 <Mail className="text-warning mb-2" size={24} />
                 <h5 className="fw-semibold">Contact Us</h5>
-                <p>+91 98057 22642</p>
+                <p><a href="mailto:info@flexietrips.com">info@flexietrips.com</a></p>
               </div>
             </div>
 

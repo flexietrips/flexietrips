@@ -32,20 +32,10 @@ const Menu = () => {
         >
           <ul className="navigation clearfix">
             <li className="dropdown current">
-              <a href="#">Home</a>
-              <ul>
-                <li>
-                  <Link href="/">Travel Agency</Link>
-                </li>
-                <li>
-                  <Link href="index2">City Tou</Link>
-                </li>
-                <li>
-                  <Link href="index3">Tour Package</Link>
-                </li>
-              </ul>
+              <Link href="/" className=" text-center">Home</Link>
+              
               <div className="dropdown-btn">
-                <span className="far fa-angle-down" />
+                
               </div>
             </li>
             <li>
@@ -141,16 +131,16 @@ const Menu = () => {
             </li> */}
             <li className="dropdown">
               <a href="#">blog</a>
-              <ul>
+              {/* <ul>
                 <li>
                   <Link href="blog">blog List</Link>
                 </li>
                 <li>
                   <Link href="blog-details">blog details</Link>
                 </li>
-              </ul>
+              </ul> */}
               <div className="dropdown-btn">
-                <span className="far fa-angle-down" />
+                {/* <span className="far fa-angle-down" /> */}
               </div>
             </li>
           </ul>
@@ -451,18 +441,18 @@ const Header2 = ({ sidebarClick }) => {
                 blog
               </a>
               <ul style={activeLi("blog")}>
-                <li>
+                {/* <li>
                   <Link href="blog">blog List</Link>
                 </li>
                 <li>
                   <Link href="blog-details">blog details</Link>
-                </li>
+                </li> */}
               </ul>
               <div
                 className="dropdown-btn"
                 onClick={() => activeMenuSet("blog")}
               >
-                <span className="far fa-angle-down" />
+                {/* <span className="far fa-angle-down" /> */}
               </div>
             </li>
           </ul>

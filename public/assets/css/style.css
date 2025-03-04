@@ -264,6 +264,13 @@ input[type="radio"] {
 /*******************************************************/
 /******************  ## Common Classes *****************/
 /*******************************************************/
+.hero-overlay {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .page-wrapper {
   position: relative;
   z-index: 9;
@@ -434,7 +441,7 @@ input[type="radio"] {
   border-radius: 25px;
   display: inline-block;
   padding: 0 10px 0 15px;
-  background:  #00ADB5;
+  background: #00adb5;
 }
 @media only screen and (min-width: 376px) {
   .section-title p {
@@ -5075,6 +5082,8 @@ blockquote {
   border-color: white;
 }
 
+
+
 .form-back-drop {
   position: fixed;
   left: 100%;
@@ -5193,11 +5202,12 @@ blockquote {
   z-index: 2;
   color: white;
   font-weight: 700;
-  font-size: 200px;
+  font-size: 120px;
   position: relative;
   text-align: center;
   text-transform: uppercase;
 }
+
 @media only screen and (max-width: 1599px) {
   .hero-title {
     font-size: 90px;
@@ -5236,9 +5246,11 @@ blockquote {
 
 .main-hero-image {
   height: 790px;
-  margin-top: -8%;
+  margin-top: -20%;
   position: relative;
   border-radius: 20px;
+  /* object-fit: cover; */
+  width: 100%;
 }
 @media only screen and (max-width: 1399px) {
   .main-hero-image {

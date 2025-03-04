@@ -17,7 +17,8 @@ const page = () => {
             data-aos-duration={1500}
             data-aos-offset={50}
           >
-            tour &amp; Travel
+            Your <span className="tailored-span">personalized</span> travel
+            companion
           </h1>
           <div
             className="main-hero-image bgs-cover"
@@ -39,7 +40,12 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <SectionTitle
-                  title={"Discover the World's Treasures with flexiETrips"}
+                  title={
+                    <>
+                      Discover the <span className="highlight">World's</span>{" "}
+                      Treasures with flexiEtrips
+                    </>
+                  }
                   countValue={34500}
                   subtitle1={"One site"}
                   subtitle2={"most popular experience you’ll remember"}
@@ -333,7 +339,11 @@ const page = () => {
                   data-aos-offset={50}
                 >
                   <SectionTitle
-                    title={"Popular flexiEtrips"}
+                    title={
+                      <>
+                        <span className="highlight">Popular</span> flexiEtrips
+                      </>
+                    }
                     subtitle2="Explore the three of the most captivating Himalayan destinations."
                   />
                 </div>
@@ -557,7 +567,10 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <div className="section-title mb-60">
-                  <h2>Group Tours: Explore the Himalayas Together</h2>
+                  <h2>
+                    <span className="highlight">Group Tours:</span>Explore the
+                    Himalayas Together
+                  </h2>
                 </div>
                 <div className="features-customer-box">
                   <div className="image">
@@ -674,8 +687,15 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <SectionTitle
-                  title={"Discover the World's Class Top Hotel"}
-                  subtitle2="most popular experience you’ll remember"
+                  title={
+                    <>
+                      Discover the <span className="highlight">World's</span>{" "}
+                      Class Top travel plans
+                    </>
+                  }
+                  countValue={34500}
+                  subtitle1={"One site"}
+                  subtitle2={"most popular experience you’ll remember"}
                 />
               </div>
             </div>
@@ -1094,7 +1114,11 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <SectionTitle
-                  title={"Read Latest News & Blog"}
+                  title={
+                    <>
+                      Read Latest <span className="highlight">News & Blog</span>{" "}
+                    </>
+                  }
                   subtitle2="most popular experience you’ll remember"
                 />
               </div>
@@ -1115,7 +1139,7 @@ const page = () => {
                   <h5>
                     <Link href="blog-details">
                       Ultimate Guide to Planning Your Dream Vacation with
-                      flexiETrips Travel Agency
+                      flexiEtrips Travel Agency
                     </Link>
                   </h5>
                   <ul className="blog-meta">
