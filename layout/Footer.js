@@ -346,10 +346,10 @@ const Footer1 = () => {
                   <li>
                     <i className="fal fa-clock" /> Mon - Fri, 08am - 05pm
                   </li>
-                  <li>
+                  {/* <li>
                     <i className="fal fa-phone-volume" />{" "}
-                    <a href="callto:+919805722642">+91 9805722642</a>
-                  </li>
+                    <a href="mailto:info@felxietrips.com">info@felxietrips.com</a>
+                  </li> */}
                 </ul>
               </div>
             </div>
