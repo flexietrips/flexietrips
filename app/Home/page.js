@@ -2,6 +2,7 @@ import Counter from "@/components/Counter";
 import SearchFilter from "@/components/SearchFilter";
 import SectionTitle from "@/components/SectionTitle";
 import Testimonial from "@/components/slider/Testimonial";
+import { destinations } from "@/constants";
 import ReveloLayout from "@/layout/ReveloLayout";
 import Link from "next/link";
 const page = () => {
@@ -20,13 +21,15 @@ const page = () => {
             Your <span className="tailored-span">personalized</span> travel
             companion
           </h1>
+
           <div
             className="main-hero-image bgs-cover"
             style={{ backgroundImage: "url(assets/images/hero/hero.jpg)" }}
           />
         </div>
-        {/* <SearchFilter /> */}
       </section>
+
+      {/* <SearchFilter /> */}
       {/* Hero Area End */}
       {/* Destinations Area start */}
       <section className="destinations-area bgc-black pt-100 pb-70 rel z-1">
@@ -54,169 +57,47 @@ const page = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
+            {destinations.map((destination) => (
+              <div key={destination.id} className="col-xxl-3 col-xl-4 col-md-6">
+                <div
+                  className="destination-item"
+                  data-aos="fade-up"
+                  data-aos-delay={destination.delay}
+                  data-aos-duration={1500}
+                  data-aos-offset={50}
+                >
+                  <div className="image">
+                    <div className="ratting">
+                      <i className="fas fa-star" /> {destination.rating}
+                    </div>
+                    <a href="#" className="heart">
+                      <i className="fas fa-heart" />
+                    </a>
+                    <img src={destination.image} alt="Destination" />
                   </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place1.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Tours, France
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Brown Concrete Building Basilica St Martin
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$58.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
+                  <div className="content">
+                    <span className="location">
+                      <i className="fal fa-map-marker-alt" />{" "}
+                      {destination.location}
+                    </span>
+                    <h5>
+                      <Link to="/destination-details">{destination.title}</Link>
+                    </h5>
+                    <span className="time">
+                      {destination.duration} - {destination.tripType}
+                    </span>
+                  </div>
+                  <div className="destination-footer">
+                    <span className="price">
+                      <span>${destination.price.toFixed(2)}</span>/per person
+                    </span>
+                    <a href="#" className="read-more">
+                      Book Now <i className="fal fa-angle-right" />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
-                  </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place2.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Wildest, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Blue lake water view taken travel with daytime
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$63.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
-                  </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place3.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Rome, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Woman standing near Colosseum, Rome
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$42</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={300}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
-                  </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place4.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Rome, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Woman standing near Colosseum, Rome
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$52.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

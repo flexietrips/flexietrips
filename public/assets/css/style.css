@@ -294,7 +294,7 @@ input[type="radio"] {
   }
 }
 
-@media only screen and (min-width: 576px) {
+/* @media only screen and (min-width: 576px) {
   .container-fluid {
     padding-left: 25px;
     padding-right: 25px;
@@ -306,7 +306,7 @@ input[type="radio"] {
     padding-left: 70px;
     padding-right: 70px;
   }
-}
+} */
 
 .row {
   --bs-gutter-x: 30px;
@@ -5082,8 +5082,6 @@ blockquote {
   border-color: white;
 }
 
-
-
 .form-back-drop {
   position: fixed;
   left: 100%;
@@ -5199,16 +5197,16 @@ blockquote {
 /******************** ## Hero Area ********************/
 /*******************************************************/
 .hero-title {
-  z-index: 2;
+  /* z-index: 2; */
   color: white;
   font-weight: 700;
   font-size: 120px;
-  position: relative;
+  /* position: relative; */
   text-align: center;
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 1599px) {
+/* @media only screen and (max-width: 1599px) {
   .hero-title {
     font-size: 90px;
   }
@@ -5242,11 +5240,11 @@ blockquote {
   .hero-title {
     font-size: 35px;
   }
-}
+} */
 
 .main-hero-image {
-  height: 790px;
-  margin-top: -20%;
+  height: 700px;
+  margin-top: -3%;
   position: relative;
   border-radius: 20px;
   /* object-fit: cover; */
@@ -5254,20 +5252,25 @@ blockquote {
 }
 @media only screen and (max-width: 1399px) {
   .main-hero-image {
-    height: 555px;
+    height: 500px;
+    margin-top: -5%;
   }
 }
 @media only screen and (max-width: 991px) {
   .main-hero-image {
-    height: 450px;
+    height: 425px;
+    margin-top: -10%;
+
   }
 }
 @media only screen and (max-width: 575px) {
   .main-hero-image {
     height: 400px;
+    margin-top: -29%;
+
   }
 }
-.main-hero-image:before {
+/* .main-hero-image:before {
   position: absolute;
   left: 0;
   top: 0;
@@ -5288,7 +5291,7 @@ blockquote {
   );
   background: -o-linear-gradient(top, #1d231f 0%, rgba(29, 35, 31, 0) 100%);
   background: linear-gradient(180deg, #1d231f 0%, rgba(29, 35, 31, 0) 100%);
-}
+} */
 
 .search-filter-inner {
   display: -webkit-box;
@@ -6846,11 +6849,11 @@ blockquote {
 }
 
 .count-text.k-plus:after {
-  content: "k+";
+  content: "+";
 }
 
 .count-text.m-plus:after {
-  content: "m+";
+  content: "k+";
 }
 
 /*******************************************************/
@@ -10700,3 +10703,5 @@ blockquote .blockquote-footer:before {
 .footer-bottom-nav li {
   margin: 0 13px 5px;
 }
+
+

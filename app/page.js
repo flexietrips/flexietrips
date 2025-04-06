@@ -1,16 +1,107 @@
+"use client";
+
 import Counter from "@/components/Counter";
-import SearchFilter from "@/components/SearchFilter";
 import SectionTitle from "@/components/SectionTitle";
 import Testimonial from "@/components/slider/Testimonial";
+import { destinations, plans, staticDestinations } from "@/constants";
 import ReveloLayout from "@/layout/ReveloLayout";
 import Link from "next/link";
+import { User, Mail, Phone, CalendarDays, Users, MapPin } from "lucide-react";
+import DatePicker from "react-datepicker";
+import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 const page = () => {
+  const [travelDate, setTravelDate] = useState(null);
+  const [formStatus, setFormStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null,
+  });
+
+  const placeholderStyle = {
+    color: "#000",
+  };
+
+  // Modified form submission function in your React component
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ submitting: true, submitted: false, error: null });
+
+    // Get form values
+    const formData = new FormData(e.target);
+    const formProps = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      travelDate: travelDate ? travelDate.toISOString().split("T")[0] : "",
+      travelers: formData.get("travelers"),
+      origin: formData.get("origin"),
+    };
+
+    // The Google Apps Script web app URL you copied when deploying
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbyJ6Kw9OoiyW9b-Fx90vWcXGl1ZODAvpt_J-U5HwCwBYp1LAYrvYoOvyOvfgW9q8QB_oQ/exec";
+
+    // Create a unique callback name
+    const callbackName = "jsonpCallback" + Date.now();
+
+    // Create promise for JSONP
+    const jsonpPromise = new Promise((resolve, reject) => {
+      // Define the callback function
+      window[callbackName] = (response) => {
+        if (response.result === "success") {
+          resolve(response);
+        } else {
+          reject(new Error(response.error || "Form submission failed"));
+        }
+        // Clean up the global function when done
+        delete window[callbackName];
+      };
+
+      // Set timeout to handle network errors
+      setTimeout(() => {
+        reject(new Error("Request timed out"));
+        delete window[callbackName];
+      }, 10000);
+    });
+
+    try {
+      // Build query string from form data
+      const queryParams = new URLSearchParams({
+        ...formProps,
+        callback: callbackName,
+      }).toString();
+
+      // Create script element for JSONP
+      const script = document.createElement("script");
+      script.src = `${scriptURL}?${queryParams}`;
+      document.body.appendChild(script);
+
+      // Wait for response
+      await jsonpPromise;
+
+      // Reset form on success
+      e.target.reset();
+      setTravelDate(null);
+      setFormStatus({ submitting: false, submitted: true, error: null });
+
+      // Clean up script tag
+      document.body.removeChild(script);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormStatus({
+        submitting: false,
+        submitted: false,
+        error: "Failed to submit form. Please try again later.",
+      });
+    }
+  };
   return (
     <ReveloLayout header={1} footer={1}>
       {/* Hero Area Start */}
-      <section className="hero-area bgc-black pt-200 rpt-120 rel z-2">
+      <section className="hero-area bgc-black pt-200  ">
         <div className="container-fluid">
-          <h1
+          {/* <h1
             className="hero-title"
             data-aos="flip-up"
             data-aos-delay={50}
@@ -19,11 +110,27 @@ const page = () => {
           >
             Your <span className="tailored-span">personalized</span> travel
             companion
-          </h1>
-          <div
-            className="main-hero-image bgs-cover"
-            style={{ backgroundImage: "url(assets/images/hero/hero.jpg)" }}
-          />
+          </h1> */}
+
+          <div className="main-hero-image bgs-cover">
+            <video
+              src="/banner.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                zIndex: 0,
+                // filter: "blur(2px)",
+              }}
+            />
+          </div>
         </div>
         {/* <SearchFilter /> */}
       </section>
@@ -53,168 +160,169 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-xxl-3 col-xl-4 col-md-6">
+          <div className="row justify-content-center g-4">
+            {plans.map((plan, index) => (
               <div
-                className="destination-item"
+                key={index}
+                className="col-xxl-3 col-xl-4 col-md-6"
                 data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
+                data-aos-duration="1500"
+                data-aos-delay={plan.delay}
+                data-aos-offset="50"
               >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
+                <div className="destination-item h-100 d-flex flex-column">
+                  <div className="image">
+                    <img
+                      src={plan.image}
+                      alt={plan.name}
+                      className="img-fluid"
+                      height={500}
+                    />
                   </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place1.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Tours, France
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Brown Concrete Building Basilica St Martin
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$58.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
+                  <div className="content flex-grow-1 d-flex flex-column justify-content-between p-3">
+                    <div>
+                      <span className="location d-flex align-items-center gap-2 mb-2">
+                        <img
+                          src={plan.icons}
+                          alt={`${plan.name} Icon`}
+                          width="24"
+                        />
+                        <strong className="text-white">{plan.name}</strong>
+                      </span>
+                      <p className="mb-0">{plan.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
+            ))}
+
+            {/* Form Card */}
+            <div
+              className="col-xxl-3 col-xl-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              data-aos-offset="50"
+            >
+              <div className="destination-item h-100 d-flex flex-column p-3">
+                <h5 className="mb-3 text-white">Plan Your Trip</h5>
+
+                {formStatus.submitted && (
+                  <div className="alert alert-success" role="alert">
+                    Thank you! Your trip request has been submitted. We'll
+                    contact you soon.
                   </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place2.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Wildest, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Blue lake water view taken travel with daytime
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$63.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
+                )}
+
+                {formStatus.error && (
+                  <div className="alert alert-danger" role="alert">
+                    {formStatus.error}
                   </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place3.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Rome, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Woman standing near Colosseum, Rome
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$42</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xxl-3 col-xl-4 col-md-6">
-              <div
-                className="destination-item"
-                data-aos="fade-up"
-                data-aos-delay={300}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="image">
-                  <div className="ratting">
-                    <i className="fas fa-star" /> 4.8
+                )}
+
+                <form
+                  className="d-flex flex-column gap-3"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="input-group">
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <User size={18} />
+                    </span>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control border-0"
+                      placeholder="Name"
+                      required
+                      style={placeholderStyle}
+                    />
                   </div>
-                  <a href="#" className="heart">
-                    <i className="fas fa-heart" />
-                  </a>
-                  <img
-                    src="assets/images/destinations/visiting-place4.jpg"
-                    alt="Destination"
-                  />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="fal fa-map-marker-alt" /> Rome, Italy
-                  </span>
-                  <h5>
-                    <Link href="destination-details">
-                      Woman standing near Colosseum, Rome
-                    </Link>
-                  </h5>
-                  <span className="time">3 days 2 nights - Couple</span>
-                </div>
-                <div className="destination-footer">
-                  <span className="price">
-                    <span>$52.00</span>/per person
-                  </span>
-                  <a href="#" className="read-more">
-                    Book Now <i className="fal fa-angle-right" />
-                  </a>
-                </div>
+
+                  <div className="input-group">
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <Mail size={18} />
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control border-0"
+                      placeholder="Email"
+                      required
+                      style={placeholderStyle}
+                    />
+                  </div>
+
+                  <div className="input-group">
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <Phone size={18} />
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      className="form-control border-0"
+                      placeholder="Phone Number"
+                      required
+                      style={placeholderStyle}
+                    />
+                  </div>
+
+                  <div
+                    className="input-group"
+                    style={{ flexWrap: "nowrap", width: "100%" }}
+                  >
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <CalendarDays size={18} />
+                    </span>
+                    <DatePicker
+                      selected={travelDate}
+                      onChange={(date) => setTravelDate(date)}
+                      placeholderText="Select Travel Date"
+                      className="form-control border-0"
+                      required
+                      wrapperClassName="w-100"
+                      popperPlacement="bottom-start"
+                    />
+                  </div>
+
+                  <div className="input-group">
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <Users size={18} />
+                    </span>
+                    <input
+                      type="number"
+                      name="travelers"
+                      className="form-control border-0"
+                      placeholder="No. of Travelers"
+                      min="1"
+                      required
+                      style={placeholderStyle}
+                    />
+                  </div>
+
+                  <div className="input-group">
+                    <span className="input-group-text bg-secondary text-white border-0">
+                      <MapPin size={18} />
+                    </span>
+                    <input
+                      type="text"
+                      name="origin"
+                      className="form-control border-0"
+                      placeholder="Traveling To"
+                      required
+                      style={placeholderStyle}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn btn-warning mt-auto"
+                    disabled={formStatus.submitting}
+                  >
+                    {formStatus.submitting
+                      ? "Submitting..."
+                      : "Request Callback"}
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -238,8 +346,13 @@ const page = () => {
                   </h2>
                 </div>
                 <p>
-                  We go above and beyond to make your travel dreams reality
-                  hidden gems and must-see attractions
+                  Travel with confidence when you choose our agency. We offer
+                  personalized service, expert guidance, and handpicked
+                  experiences to ensure every journey is seamless and
+                  unforgettable. From secure bookings to 24/7 support, we
+                  prioritize your comfort and satisfaction, making your
+                  adventures worry-free and truly exceptional from start to
+                  finish.
                 </p>
                 <div className="divider counter-text-wrap mt-45 mb-55">
                   <span>
@@ -248,9 +361,9 @@ const page = () => {
                       <span
                         className="count-text plus"
                         data-speed={3000}
-                        data-stop={25}
+                        data-stop={8}
                       >
-                        <Counter end={25} />
+                        <Counter end={8} />
                       </span>{" "}
                       Years
                     </span>{" "}
@@ -263,9 +376,9 @@ const page = () => {
                       <span
                         className="count-text k-plus"
                         data-speed={3000}
-                        data-stop={3}
+                        data-stop={100}
                       >
-                        <Counter end={3} />
+                        <Counter end={100} />
                       </span>
                       <span className="counter-title">Popular Destination</span>
                     </div>
@@ -275,9 +388,9 @@ const page = () => {
                       <span
                         className="count-text m-plus"
                         data-speed={3000}
-                        data-stop={9}
+                        data-stop={1}
                       >
-                        <Counter end={9} />
+                        <Counter end={1} />
                       </span>
                       <span className="counter-title">Satisfied Clients</span>
                     </div>
@@ -351,111 +464,27 @@ const page = () => {
             </div>
             <div className="container">
               <div className="row justify-content-center">
-                <div className="col-xl-3 col-md-6">
-                  <div
-                    className="destination-item style-two"
-                    data-aos="flip-up"
-                    data-aos-duration={1500}
-                    data-aos-offset={50}
-                  >
-                    <div className="image">
-                      <a href="#" className="heart">
-                        <i className="fas fa-heart" />
-                      </a>
-                      <img
-                        src="assets/images/destinations/destination1.jpg"
-                        alt="Destination"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6>
-                        <Link href="destination-details">
-                          Conquer the Legendary Spiti Circuit
-                        </Link>
-                      </h6>
-                      <span className="time">
-                        Embark on an exciting adventure to the heart of the
-                        majestic Himalayas. Trek through breathtaking
-                        landscapes, where towering peaks and ancient monasteries
-                        stand as timeless guardians. Immerse yourself in a world
-                        of awe, where every step reveals the hidden wonders of
-                        this captivating region.
-                      </span>
+                {staticDestinations.map((destination, index) => (
+                  <div className="col-xl-3 col-md-6" key={index}>
+                    <div className="destination-item style-two">
+                      <div className="image">
+                        <a href="#" className="heart">
+                          <i className="fas fa-heart" />
+                        </a>
+                        <img src={destination.image} alt="Destination" />
+                      </div>
+                      <div className="content">
+                        <h6>
+                          <Link href={destination.link}>
+                            {destination.title}
+                          </Link>
+                        </h6>
+                        <span className="time">{destination.description}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div
-                    className="destination-item style-two"
-                    data-aos="flip-up"
-                    data-aos-delay={100}
-                    data-aos-duration={1500}
-                    data-aos-offset={50}
-                  >
-                    <div className="image">
-                      <a href="#" className="heart">
-                        <i className="fas fa-heart" />
-                      </a>
-                      <img
-                        src="assets/images/destinations/destination2.jpg"
-                        alt="Destination"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6>
-                        <Link href="destination-details">
-                          Uncover the Wonders of Manali-Zanskar
-                        </Link>
-                      </h6>
-                      <span className="time">
-                        Embark on a mesmerizing journey through the diverse
-                        landscapes of the Manali-Zanskar region. Travel from
-                        lush, green valleys to the snow-capped peaks of the
-                        mighty Himalayas, discovering hidden treasures at every
-                        corner.
-                      </span>
-                      {/* <a href="#" className="more">
-                        <i className="fas fa-chevron-right" />
-                      </a> */}
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <div
-                    className="destination-item style-two"
-                    data-aos="flip-up"
-                    data-aos-delay={200}
-                    data-aos-duration={1500}
-                    data-aos-offset={50}
-                  >
-                    <div className="image">
-                      <a href="#" className="heart">
-                        <i className="fas fa-heart" />
-                      </a>
-                      <img
-                        src="assets/images/destinations/destination3.jpg"
-                        alt="Destination"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6>
-                        <Link href="destination-details">
-                          Uncover the Enchanting Secrets of Kashmir
-                        </Link>
-                      </h6>
-                      <span className="time">
-                        Venture deep into the heart of the Himalayas and uncover
-                        the hidden gems of the enchanting Kashmir Valley.
-                        Immerse yourself in a land of stunning beauty, where
-                        tranquil lakes mirror snow-capped peaks, and
-                        centuries-old traditions continue to flourish.
-                      </span>
-                      {/* <a href="#" className="more">
-                        <i className="fas fa-chevron-right" />
-                      </a> */}
-                    </div>
-                  </div>
-                </div>
+                ))}
+
                 {/* <div className="col-md-6">
                   <div
                     className="destination-item style-two"
