@@ -8,7 +8,7 @@ import "@css/slick.min.css";
 import "@css/style.css";
 import "./globals.css";
 import 'rc-slider/assets/index.css';
-
+     
 
 export const metadata = {
   title: "flexiEtrips",
