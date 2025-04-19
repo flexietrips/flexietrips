@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "itineraries",
+  "info": {
+    "singularName": "itinerary",
+    "pluralName": "itineraries",
+    "displayName": "itinerary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "travel_date": {
+      "type": "date"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
